@@ -14,7 +14,7 @@ class FocusCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     func configure(_ focus: Focus) {
-        weatherImage.image = UIImage(named: focus.imageName)
+        weatherImage.image = UIImage(systemName: focus.imageName)
         descriptionLabel.text = focus.description
         titleLabel.text = focus.title
     }
