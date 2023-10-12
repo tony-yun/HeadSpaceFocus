@@ -76,18 +76,37 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ic-Z3-ScY">
+                                <rect key="frame" x="30" y="768" width="333" height="50"/>
+                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Z27-3R-X6R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Show All">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshButtonTapped:" destination="07K-eu-e7f" eventType="touchUpInside" id="bAE-qS-yMh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xIF-vf-ToX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2ic-Z3-ScY" firstAttribute="centerX" secondItem="xIF-vf-ToX" secondAttribute="centerX" id="52R-ic-Z83"/>
                             <constraint firstAttribute="bottom" secondItem="E9W-rU-mbN" secondAttribute="bottom" id="Fcc-nr-BYH"/>
+                            <constraint firstItem="xIF-vf-ToX" firstAttribute="bottom" secondItem="2ic-Z3-ScY" secondAttribute="bottom" id="K0o-3X-wVd"/>
                             <constraint firstItem="xIF-vf-ToX" firstAttribute="trailing" secondItem="E9W-rU-mbN" secondAttribute="trailing" id="Wo9-mH-ntQ"/>
                             <constraint firstItem="E9W-rU-mbN" firstAttribute="leading" secondItem="xIF-vf-ToX" secondAttribute="leading" id="an1-it-WdU"/>
+                            <constraint firstItem="2ic-Z3-ScY" firstAttribute="leading" secondItem="xIF-vf-ToX" secondAttribute="leading" constant="30" id="dtp-DM-lUU"/>
                             <constraint firstItem="E9W-rU-mbN" firstAttribute="top" secondItem="xIF-vf-ToX" secondAttribute="top" id="eNB-BY-OJe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="E9W-rU-mbN" id="0bW-s2-bhs"/>
+                        <outlet property="refreshButton" destination="2ic-Z3-ScY" id="nmJ-qD-HuA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aqZ-hT-Jgd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -99,6 +118,9 @@
         <image name="cloud.fill" catalog="system" width="128" height="87"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

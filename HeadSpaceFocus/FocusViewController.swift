@@ -9,7 +9,10 @@ import UIKit
 
 class FocusViewController: UIViewController {
 
+    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var curated: Bool = false
     
     var items: [Focus] = Focus.list
     typealias Item = Focus
@@ -40,6 +43,10 @@ class FocusViewController: UIViewController {
         // layout
         collectionView.collectionViewLayout = layout()
         
+        refreshButton.layer.cornerRadius = 10
+        // button change, 아래에 함수 만들어 놓음.
+        updateButtonTitle()
+        
     }
     private func layout() -> UICollectionViewCompositionalLayout {
         
@@ -56,5 +63,22 @@ class FocusViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout(section: section)
         
         return layout
+    }
+    
+    func updateButtonTitle() {
+        let title = curated ? "See All" : "See Recommendation"
+        refreshButton.setTitle(title, for: .normal)
+    }
+    
+    @IBAction func refreshButtonTapped(_ sender: Any) {
+        curated.toggle()
+        self.items = curated ? Focus.recommendations : Focus.list
+        
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(items, toSection: .main)
+        datasource.apply(snapshot)
+        
+        updateButtonTitle()
     }
 }
