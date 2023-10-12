@@ -13,8 +13,14 @@ class FocusCell: UICollectionViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        contentView.backgroundColor = UIColor.systemIndigo
+        contentView.layer.cornerRadius = 10
+    }
+    
     func configure(_ focus: Focus) {
-        weatherImage.image = UIImage(systemName: focus.imageName)
+        weatherImage.image = UIImage(systemName: focus.imageName)?.withRenderingMode(.alwaysOriginal) //색상 적용
         descriptionLabel.text = focus.description
         titleLabel.text = focus.title
     }
